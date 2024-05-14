@@ -112,6 +112,11 @@ main {
   text-align: center;
 }
 
+.blog-container tr a {
+  font-size: 1.5rem;
+  color: black;
+}
+
 .blog-content {
   display: -webkit-box;
   display: -ms-flexbox;

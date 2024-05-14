@@ -9,8 +9,10 @@
   font-size: 62.5%;
 }
 
+// Color: fbfeea
 a {
   text-decoration: none;
+ 
 }
 
 body {
@@ -46,9 +48,7 @@ nav {
   h1 {
     font-weight: 700;
     font-size: 4.5rem;
-    a {
-      // color: var(--secondary)
-    }
+    
   }
  
   ul {
@@ -87,7 +87,12 @@ main {
       padding: .4rem;
       text-align: center;
     }
+    a {
+      font-size: 1.5rem;
+      color: black;
+    }
   }
+ 
 }
 .blog-content {
   display: flex;
