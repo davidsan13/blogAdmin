@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link} from 'react-router-dom'
 import GetData from './Api'
 import ToggleBtn from './ToggleBtn'
+import EditorTiny from './EditorTiny'
 function Blogs() {
 
   const[blogs, setBlogs] = useState([])
@@ -22,9 +23,8 @@ function Blogs() {
     const url =  `http://localhost:3005/blog/${blog._id}/update`
     const method = 'POST'
     const updatePublished = blog.published ? false: true;
-    // console.log(updatePublished)
     let requestOptions = JSON.stringify({published: updatePublished})
-    // console.log(requestOptions)
+
     GetData(url, method, requestOptions)
       .then((res) => {
         return res.json()
@@ -36,7 +36,6 @@ function Blogs() {
    
   }
   const allBlogs = blogs.map((blog) =>
-    
     <tr key={blog._id}>
       <td>{blog.title.substring(0,15)}</td>
       <td><Link className="edit"to={{pathname:`/blog/${blog._id}/edit`}} state={blog}>Edit</Link></td>
@@ -50,20 +49,20 @@ function Blogs() {
     </tr>
   )
   return (
-    
-    <table className='blog-container'>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th colSpan="2">Action</th>
-          <th>Publish</th>
-        </tr>
-      </thead>
-      <tbody>
-        {allBlogs}
-      </tbody>
-    </table>
-    
+    <>
+      <table className='blog-container'>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th colSpan="2">Action</th>
+            <th>Publish</th>
+          </tr>
+        </thead>
+        <tbody>
+          {allBlogs}
+        </tbody>
+      </table>
+    </>
    
   )
 }

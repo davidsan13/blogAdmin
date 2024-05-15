@@ -26,8 +26,8 @@ body {
   height: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 4fr;
-      grid-template-columns: 1fr 4fr;
+  -ms-grid-columns: .5fr 4fr;
+      grid-template-columns: .5fr 4fr;
   -ms-grid-rows: .3fr 3fr .3fr;
       grid-template-rows: .3fr 3fr .3fr;
   -webkit-box-orient: vertical;
