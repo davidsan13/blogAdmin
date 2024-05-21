@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react'
 import { Link} from 'react-router-dom'
 import GetData from './Api'
 import ToggleBtn from './ToggleBtn'
-import EditorTiny from './EditorTiny'
+
 function Blogs() {
 
   const[blogs, setBlogs] = useState([])
   const[published, setPublished] = useState(1)
   const url = 'http://localhost:3005/blog/allBlogs'
-
+  let blogId = '664656bd192414d6abf9ad26'
   useEffect(() => {
     GetData(url, 'GET')
       .then((res) => {
@@ -24,7 +24,7 @@ function Blogs() {
     const method = 'POST'
     const updatePublished = blog.published ? false: true;
     let requestOptions = JSON.stringify({published: updatePublished})
-
+    
     GetData(url, method, requestOptions)
       .then((res) => {
         return res.json()
@@ -39,7 +39,7 @@ function Blogs() {
     <tr key={blog._id}>
       <td>{blog.title.substring(0,15)}</td>
       <td><Link className="edit"to={{pathname:`/blog/${blog._id}/edit`}} state={blog}>Edit</Link></td>
-      <td>Delete</td>
+      <td><Link className='delete' to={{pathname: `/blog/${blogId}/delete`}}>Delete</Link></td>
       <td> 
         <label className="switch">
           <ToggleBtn blog={blog} handler={updatePublish}/>
