@@ -4,10 +4,10 @@ function SideBar() {
   return (
     <>
       <aside className='sidebar'>
-        <section id='widget_1'>Post</section>
-        <Link to={{ pathname: 'blog/create'}}><section id='widget_1'> Create Post</section></Link>
-        <section id='widget_1'>Logout</section>
-  
+        <section><Link to= '/'> Post</Link></section>
+
+        <section >Logout</section>
+
       </aside>
         
     </>

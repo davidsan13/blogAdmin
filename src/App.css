@@ -122,6 +122,12 @@ nav {
           align-items: center;
   gap: 1rem;
   padding: .5rem;
+  color: #180f0f;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.875);
 }
 
 nav h1 {
@@ -168,7 +174,15 @@ main {
 
 .blog-container {
   width: 95%;
-  font-size: 6rem;
+  font-size: 1rem;
+}
+
+.blog-container .action {
+  padding: 0;
+}
+
+.blog-container thead {
+  font-weight: bold;
 }
 
 .blog-container tbody:before {
@@ -344,11 +358,14 @@ input:checked + .slider:before {
   grid-row: 2/4;
 }
 
+.sidebar a {
+  color: #180f0f;
+}
+
 .sidebar > section {
   cursor: pointer;
-  font-size: 2rem;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-          box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 footer {
@@ -391,10 +408,10 @@ footer .footer-link {
 
 footer .footer-link img {
   opacity: .7;
-  height: 2.5rem;
+  height: 1.5rem;
 }
 
 footer h1 {
-  font-size: 1rem;
+  font-size: .7rem;
 }
 /*# sourceMappingURL=App.css.map */

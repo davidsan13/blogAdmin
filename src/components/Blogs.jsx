@@ -37,9 +37,9 @@ function Blogs() {
   }
   const allBlogs = blogs.map((blog) =>
     <tr key={blog._id}>
-      <td>{blog.title.substring(0,15)}</td>
-      <td><Link className="edit"to={{pathname:`/blog/${blog._id}/edit`}} state={blog}>Edit</Link></td>
-      <td><Link className='delete' to={{pathname: `/blog/${blogId}/delete`}}>Delete</Link></td>
+      <td><Link className='blogview' to={{pathname: `/blog/${blogId}`}}>{blog.title.substring(0,15)}</Link></td>
+      <td className='action'><Link className="edit"to={{pathname:`/blog/${blog._id}/edit`}} state={blog}>Edit</Link></td>
+      <td className='action'><Link className='delete' to={{pathname: `/blog/${blogId}/delete`}}>Delete</Link></td>
       <td> 
         <label className="switch">
           <ToggleBtn blog={blog} handler={updatePublish}/>

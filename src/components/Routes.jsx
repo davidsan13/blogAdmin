@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import Edit from "../pages/Edit";
 import Delete from "../pages/Delete";
 import CreateBlog from "../pages/CreateBlog";
+import Blog from "../pages/Blog"
 import { createBrowserRouter, RouterProvider  } from "react-router-dom";
 
 
@@ -29,6 +30,10 @@ const Router =  () => {
         {
           path: "blog/:blogId/delete",
           element: <Delete/>
+        },
+        {
+          path: "blog/:blogId",
+          element: <Blog/>
         }
 
   

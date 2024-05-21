@@ -113,8 +113,12 @@ nav {
   // position: relative;
   gap: 1rem;
   padding: .5rem;
+  color: #180f0f;
   // border-bottom: 2px solid var(--third);
-  
+  a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.875);
+  }
   h1 {
     font-weight: 700;
     font-size: 2.5rem;
@@ -149,7 +153,13 @@ main {
 }
 .blog-container {
   width: 95%;
-  font-size: 6rem;
+  font-size: 1rem;
+  .action {
+    padding:0;
+  }
+  thead {
+    font-weight: bold;
+  }
   tbody:before {
     content: "@";
     display: block;
@@ -289,10 +299,13 @@ input:checked + .slider:before {
   background-color: rgb(54, 140, 239);
   grid-column: 1/2;
   grid-row: 2/4;
+  a {
+    color: #180f0f;
+  }
   >section {
     cursor: pointer;
-    font-size: 2rem;
-    box-shadow:  rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;  
+    font-size: 1.5rem;
+    font-weight: bold;
   }
 }
 
@@ -316,11 +329,11 @@ footer {
     display: flex;
     img {
       opacity: .7;
-      height: 2.5rem;
+      height: 1.5rem;
     }
   }
   h1 {
-    font-size: 1rem;
+    font-size: .7rem;
   }
 }
 
