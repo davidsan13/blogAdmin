@@ -5,6 +5,7 @@ function SideBar() {
     <>
       <aside className='sidebar'>
         <section><Link to= '/'> Post</Link></section>
+        <section><Link to= '/login'> Login</Link></section>
 
         <section >Logout</section>
 

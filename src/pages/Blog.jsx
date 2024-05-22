@@ -5,9 +5,8 @@ import {decode} from 'html-entities'
 const Blog = () => {
   const [blog, setBlog] = useState([]);
   let {state} = useLocation()
-
+  let {blogId} = useParams()
   useEffect(() => {
-    const blogId = "664656bd192414d6abf9ad26"
     const url = `http://localhost:3005/blog/${blogId}/`
     const method = 'GET'
     GetData(url, method)

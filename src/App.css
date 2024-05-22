@@ -168,6 +168,36 @@ main {
   grid-row: 2 / 3;
 }
 
+.loginContainer {
+  font-size: 1.5rem;
+}
+
+.loginContainer .titleContainer {
+  font-weight: bold;
+}
+
+.loginContainer input {
+  border: 2px solid #eee;
+  border-radius: 7px;
+  height: 3rem;
+  padding: .5rem;
+}
+
+.loginContainer input[type='button'] {
+  border: 2px solid #2175f3;
+  border-radius: 7px;
+  background-color: #2196F3;
+}
+
+.loginContainer input[type='button']:hover {
+  opacity: .6;
+}
+
+.loginContainer input[type='button']:active {
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
+}
+
 .blog {
   text-align: left;
 }
@@ -214,6 +244,32 @@ main {
   width: 100%;
 }
 
+button {
+  border: 2px solid #2175f3;
+  border-radius: 7px;
+  background-color: #2196F3;
+}
+
+button:hover {
+  opacity: .6;
+}
+
+button:active {
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
+}
+
+.postBtn {
+  height: 2rem;
+  padding: .5rem;
+  font-weight: bold;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  position: fixed;
+  right: 90px;
+  bottom: 80px;
+}
+
 .postContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -230,21 +286,6 @@ main {
   height: 3rem;
   border: 2px solid #eee;
   border-radius: 7px;
-}
-
-.postContainer button {
-  border: 2px solid #2175f3;
-  border-radius: 7px;
-  background-color: #2196F3;
-}
-
-.postContainer button:hover {
-  opacity: .6;
-}
-
-.postContainer button:active {
-  -webkit-transform: translateY(3px);
-          transform: translateY(3px);
 }
 
 .postContainer input {
@@ -274,6 +315,7 @@ main {
 
 .published h3 {
   font-size: 1.5rem;
+  margin: 0;
 }
 
 .switch {

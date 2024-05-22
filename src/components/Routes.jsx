@@ -6,6 +6,7 @@ import Edit from "../pages/Edit";
 import Delete from "../pages/Delete";
 import CreateBlog from "../pages/CreateBlog";
 import Blog from "../pages/Blog"
+import Login from '../pages/Login'
 import { createBrowserRouter, RouterProvider  } from "react-router-dom";
 
 
@@ -18,6 +19,10 @@ const Router =  () => {
         {
           path: "/",
           element: <Home />
+        },
+        {
+          path: "/login",
+          element: <Login/>
         },
         {
           path: "blog/create",

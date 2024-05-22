@@ -1,10 +1,11 @@
 import React from 'react'
 import Blogs from '../components/Blogs'
+import { Link} from 'react-router-dom'
+
 const Home = () => {
   return (
     <>
-      <h1>Add Post</h1>
-  
+      <Link className='postBtn' to='/blog/create'><button className='postBtn'>Add Post</button></Link>
       <Blogs/>
     </>
   )

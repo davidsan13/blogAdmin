@@ -1,6 +1,8 @@
 import { Editor } from '@tinymce/tinymce-react';
-import {useState} from 'react'
+import {useState, useEffect, createElement} from 'react'
 import GetData from '../components/Api'
+import { useLocation, useParams } from 'react-router-dom'
+import {decode} from 'html-entities'
 
 const Edit = () => {
   const [article, setArticle] = useState('')
@@ -8,6 +10,24 @@ const Edit = () => {
   const [title, setTitle] = useState('');
   const [setContent] = useState('');
  
+  const renderHTML = (rawHTML) => createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+
+  const [blog, setBlog] = useState([]);
+  let {blogId} = useParams()
+  useEffect(() => {
+    const url = `http://localhost:3005/blog/${blogId}/`
+    const method = 'GET'
+    GetData(url, method)
+      .then((res) => {
+        return res.json()
+      })
+      .then(data => {
+        setBlog(data.blog)
+      })
+
+  },[])
+
+
   const addArticle = (e) => {
     e.preventDefault()
     console.log(published)
@@ -53,7 +73,7 @@ const Edit = () => {
         </div>
         <div className='inputContainer'>
           <input
-            value={title}
+            value={blog.title || title}
             placeholder="Title"
             onChange={(ev) => setTitle(ev.target.value)}
             className='title'
@@ -63,7 +83,7 @@ const Edit = () => {
         <Editor
           id='content'
           apiKey="wvrnp6q7psywmrupwobogs3rquqvn0a464njttl1szupfo6b"
-          initialValue="<p>This is the initial content of the editor.</p>"
+          initialValue= {decode(blog.content)}
           init={{
             height: 300,
             width: 550,

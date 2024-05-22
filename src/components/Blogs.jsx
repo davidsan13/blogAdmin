@@ -8,7 +8,7 @@ function Blogs() {
   const[blogs, setBlogs] = useState([])
   const[published, setPublished] = useState(1)
   const url = 'http://localhost:3005/blog/allBlogs'
-  let blogId = '664656bd192414d6abf9ad26'
+  
   useEffect(() => {
     GetData(url, 'GET')
       .then((res) => {
@@ -35,11 +35,29 @@ function Blogs() {
     setPublished(published+1)
    
   }
+
+  function remove() {
+    const url =  `http://localhost:3005/blog/${blog._id}/delete`
+    const method = 'POST'
+    
+    
+    GetData(url, method)
+      .then((res) => {
+        return res.json()
+      })
+      .then(data => {
+        console.log(data)
+      })
+    setPublished(published+1)
+   
+  }
   const allBlogs = blogs.map((blog) =>
     <tr key={blog._id}>
-      <td><Link className='blogview' to={{pathname: `/blog/${blogId}`}}>{blog.title.substring(0,15)}</Link></td>
+      <td><Link className='blogview' to={{pathname: `/blog/${blog._id}`}}>{blog.title.substring(0,15)}</Link></td>
       <td className='action'><Link className="edit"to={{pathname:`/blog/${blog._id}/edit`}} state={blog}>Edit</Link></td>
-      <td className='action'><Link className='delete' to={{pathname: `/blog/${blogId}/delete`}}>Delete</Link></td>
+      <td className='action'><Link className='delete' to={{pathname: `/blog/${blog._id}/delete`}}>Delete</Link></td>
+      <td className='action'><input onClick= {() => remove()} />D</td>
+
       <td> 
         <label className="switch">
           <ToggleBtn blog={blog} handler={updatePublish}/>

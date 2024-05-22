@@ -1,39 +1,41 @@
-import { useState, useEffect, React, createElement} from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useState, useEffect, React} from 'react'
+import { useLocation, useParams, redirect, useNavigate } from 'react-router-dom'
 import GetData from '../components/Api'
-import {decode} from 'html-entities'
 const Delete = () => {
   const [blog, setBlog] = useState([]);
   let {state} = useLocation()
-
+  let {blogId} = useParams()
+  const navi = useNavigate()
   useEffect(() => {
-    const blogId = "664656bd192414d6abf9ad26"
-    const url = `http://localhost:3005/blog/${blogId}/`
-    const method = 'GET'
+   
+    
+  },[])
+
+  function remove() {
+    console.log(blogId)
+    const url =  `http://localhost:3005/blog/${blogId}/delete`
+    const method = 'POST'
+    
+    
     GetData(url, method)
       .then((res) => {
         return res.json()
       })
       .then(data => {
-        setBlog(data.blog)
+        console.log(data)
       })
-
-  },[])
+    navi('/')
+  }
   
-  const renderHTML = (rawHTML) => createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
   // {renderHTML("<p>&amp;nbsp;</p>")}
 
-  const blogView = 
-    <div className="blog" key={blog._id}>
-      <h1 className='blog-title'>{blog.title}</h1>
-      {renderHTML(decode(blog.content))}
-    </div>
+
 
   return (
     <>
-      {blogView}
-    
+      <h1>Are you sure you want to delete</h1>
+      <button onClick={() => remove()}>Yes</button>
     </>
   )
 }
