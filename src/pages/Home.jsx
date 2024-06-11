@@ -3,6 +3,7 @@ import Blogs from '../components/Blogs'
 import { Link} from 'react-router-dom'
 
 const Home = () => {
+  console.log('hemooeoe')
   return (
     <>
       <Link className='postBtn' to='/blog/create'><button className='postBtn'>Add Post</button></Link>

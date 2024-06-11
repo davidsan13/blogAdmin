@@ -7,7 +7,7 @@ function Blogs() {
 
   const[blogs, setBlogs] = useState([])
   const[published, setPublished] = useState(1)
-  const url = 'http://localhost:3005/blog/allBlogs'
+  const url = 'http://localhost:3005/admin/allBlogs'
   
   useEffect(() => {
     GetData(url, 'GET')

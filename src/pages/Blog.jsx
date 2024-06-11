@@ -21,7 +21,7 @@ const Blog = () => {
   
   const renderHTML = (rawHTML) => createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
-  // {renderHTML("<p>&amp;nbsp;</p>")}
+ 
 
   const blogView = 
     <div className="blog" key={blog._id}>

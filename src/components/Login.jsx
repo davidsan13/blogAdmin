@@ -8,7 +8,7 @@ const Login = (props) => {
   const [passwordError, setPasswordError] = useState('')
 
   const navigate = useNavigate()
-
+  
   const onButtonClick = () => {
     // You'll update this function later...
     logIn()
@@ -25,16 +25,17 @@ const Login = (props) => {
     })
       .then((r) => r.json())
       .then((r) => {
-        if ('success' === r.message) {
-          // localStorage.setItem('user', JSON.stringify({ email, token: r.token }))
-          // props.setLoggedIn(true)
-          // props.setEmail(email)
+        if (r.message === 'success') {
+          console.log(r.message)
           navigate('/')
         } else {
           window.alert('Wrong email or password')
         }
       })
+
   }
+
+
   return (
     <div className={'mainContainer'}>
       <div className={'titleContainer'}>
@@ -62,7 +63,7 @@ const Login = (props) => {
       </div>
       <br />
       <div className={'inputContainer'}>
-        <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
+        <input className={'inputButton'} type="button" onClick={onButtonClick(e)} value={'Log in'} />
       </div>
     </div>
   )

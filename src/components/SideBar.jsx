@@ -7,7 +7,7 @@ function SideBar() {
         <section><Link to= '/'> Post</Link></section>
         <section><Link to= '/login'> Login</Link></section>
 
-        <section >Logout</section>
+        <section ><Link to='/logout'>Logout</Link></section>
 
       </aside>
         

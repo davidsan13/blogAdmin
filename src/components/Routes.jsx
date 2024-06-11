@@ -7,10 +7,20 @@ import Delete from "../pages/Delete";
 import CreateBlog from "../pages/CreateBlog";
 import Blog from "../pages/Blog"
 import Login from '../pages/Login'
+import Logout from '../pages/Logout'
 import { createBrowserRouter, RouterProvider  } from "react-router-dom";
-
+import Cookies from 'js-cookie'
 
 const Router =  () => {
+  const [token, setToken] = React.useState()
+  // setToken(Cookies.get('access_token'))
+
+ 
+  
+  React.useEffect(() => {
+    setToken(Cookies.get('access_token'))
+
+  },[])
   const router = createBrowserRouter([
     {
       path: "/",
@@ -23,6 +33,10 @@ const Router =  () => {
         {
           path: "/login",
           element: <Login/>
+        },
+        {
+          path:'/logout',
+          element: <Logout/>
         },
         {
           path: "blog/create",
@@ -40,12 +54,12 @@ const Router =  () => {
           path: "blog/:blogId",
           element: <Blog/>
         }
-
-  
       ]
     }
   ])
-  return <RouterProvider router={router}/>
+  return (
+    <RouterProvider router={router}/>
+  ) 
 }
 
 export default Router
